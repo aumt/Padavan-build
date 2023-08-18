@@ -41,7 +41,6 @@ jobs:
         fi
         cd /opt/rt-n56u/toolchain-mipsel
         sudo ./build_toolchain_3.4.x
-        sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
