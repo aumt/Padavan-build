@@ -40,7 +40,8 @@ jobs:
         git clone --depth=1 https://aumtat@bitbucket.org/aumtat/psg1218.git /opt/rt-n56u
         fi
         cd /opt/rt-n56u/toolchain-mipsel
-        sh dl_toolchain.sh
+        sudo ./build_toolchain_3.4.x
+# sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
@@ -119,7 +120,7 @@ jobs:
         #echo "自定义项=y" >> .config
         #########################################################################################
         sudo ./clear_tree
-        sudo ./build_firmware_modify $TNAME 0
+        sudo ./build_firmware $TNAME 0
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
       uses: actions/upload-artifact@master
